@@ -3,7 +3,7 @@
  * @Author: quguoliang
  * @Date: 2019-11-27 10:31:39
  * @LastEditors: quguoliang
- * @LastEditTime: 2019-11-27 11:06:07
+ * @LastEditTime: 2019-11-27 11:11:25
  -->
 # Chrome扩展开发——美化新建标签页
 
@@ -25,7 +25,7 @@
 ├── middle.js                   // 中转文件
 ├── popup.html                  // 图标显示的文件
 ├── popup.js                    // 图标显示的文件
-├── README.md                   // Help
+└── README.md                   // Help
 
 
 ### 三、问题记录
@@ -44,4 +44,6 @@
 ### 四、收获
 
 1、复习了一遍原生js的操作，确实忘记的很多，通过本次开发也熟悉了不少。
+
+***
 2、了解了chrome扩展开发的流程以及整体项目逻辑，相信通过查阅资料进行开发更多有意思的扩展不是问题。
