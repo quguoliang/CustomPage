@@ -3,7 +3,7 @@
  * @Author: quguoliang
  * @Date: 2019-11-27 10:31:39
  * @LastEditors: quguoliang
- * @LastEditTime: 2019-11-27 11:24:08
+ * @LastEditTime: 2019-11-27 11:25:22
  -->
 # Chrome扩展开发——美化新建标签页
 
@@ -15,7 +15,7 @@
 
 
 ### 二、目录结构
-
+```
 .
 ├── README.md                   // Help
 ├── background.js               // Chrome扩展的背景js文件
@@ -31,7 +31,7 @@
 │   └── search.png
 ├── popup.html                  // 图标显示的文件
 └── popup.js                
-
+```
 ### 三、问题记录
 1、Chrome扩展修改新建标签页时，页面主体无法获得正常获得焦点，经查询知目前扩展无法修改这个问题，焦点会默认到空的地址栏。
 
