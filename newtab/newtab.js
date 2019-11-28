@@ -1,6 +1,6 @@
-
 window.onload = function () {
 
+    //搜索框
     var icons = document.getElementsByClassName('select-icon')[0];
     var bcPlaceholder = document.getElementsByClassName('placeholder')[0];
     var selectTemplate = document.getElementsByClassName('select-tag')[0];

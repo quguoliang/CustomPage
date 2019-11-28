@@ -1,5 +1,5 @@
 body{
-    background-image: url('./bg.jpg'); 
+    /* background-image: url('./bg.jpg');  */
     background-repeat:no-repeat;
     background-size: 100%; 
 }
@@ -70,6 +70,10 @@ body{
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
 .ele-item{
     width: 100px;
@@ -100,4 +104,3 @@ body{
     padding: 0 10px;
    
 }
-

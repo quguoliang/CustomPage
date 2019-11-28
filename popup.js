@@ -9,9 +9,8 @@ window.onload = function () {
             // 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
             var dataURL = reader.result;
             chrome.storage.local.set({ 'imageURL': dataURL }, function () {
-                alert('修改成功，请刷新浏览器！')
+                alert('更新成功，请刷新浏览器！')
             })
-
         };
     })
 
