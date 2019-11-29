@@ -28,7 +28,7 @@
             "background.js"
         ]
     },
-     "permissions": ["tabs","storage", "bookmarks"],
+     "permissions": ["tabs","storage", "bookmarks","history"],
      "chrome_url_overrides":{
           "newtab": "middle.html"
      }

@@ -1,11 +1,14 @@
-window.onload = function () {
 
+window.onload = function () {
     //搜索框
+    var all = document.getElementById('all')
     var icons = document.getElementsByClassName('select-icon')[0];
     var bcPlaceholder = document.getElementsByClassName('placeholder')[0];
+    var selectPart = document.getElementsByClassName('select-part')[0];
     var selectTemplate = document.getElementsByClassName('select-tag')[0];
     var inputBox = document.getElementsByClassName('input-search-box')[0];
     var bookmarksBox = document.getElementsByClassName('bookmarks')[0];
+    var contactSearch = document.getElementsByClassName('contact-search')[0];
     var iconDeg = -45;
     var iconflag = 0;
     var bookmarks;
@@ -27,18 +30,48 @@ window.onload = function () {
         bcPlaceholder.style.display = 'none'
     }
     selectTemplate.onmousemove = function () {
-        selectTemplate.style.boxShadow = '0 2px 7px #ccc'
+        selectPart.style.boxShadow = '0 2px 7px #ccc'
     }
     selectTemplate.onmouseout = function () {
-        selectTemplate.style.boxShadow = 'none'
+        selectPart.style.boxShadow = 'none'
     }
 
     inputBox.addEventListener('input', function (e) {
         if (inputBox.value !== '') {
-            bcPlaceholder.style.display = 'none'
+            bcPlaceholder.style.display = 'none';
+            if (inputBox.value !== null) {
+                chrome.history.search({ text: inputBox.value }, function (res) {
+                    if (res.length !== 0) {
+                        contactSearch.style.display = 'block';
+                        bookmarksBox.style.display = 'none';
+                        var historyList = '';
+                        res.slice(0, 10).forEach(item => {
+                            historyList += `<a class='history-item-style' aria-label='${item.title}' title='${item.title}-${item.url}' href='${item.url}' ><div class='website-name item-aa'>${item.title} - ${item.url}</div></a>`
+                        })
+                        contactSearch.innerHTML = historyList
+                    } else {
+                        bookmarksBox.style.display = 'flex';
+                        contactSearch.style.display = 'none';
+                    }
+
+                });
+            } else {
+                bookmarksBox.style.display = 'flex';
+                contactSearch.style.display = 'none';
+            }
         } else {
-            bcPlaceholder.style.display = 'inline-block'
+            bcPlaceholder.style.display = 'inline-block';
+            bookmarksBox.style.display = 'flex';
+            contactSearch.style.display = 'none';
         }
+    })
+
+    all.addEventListener('click', function (e) {
+        console.log(e.target !== selectPart);
+        if (e.target !== selectPart) {
+            bookmarksBox.style.display = 'flex';
+            contactSearch.style.display = 'none';
+        };
     })
 
     document.onkeydown = function (ev) {
@@ -96,7 +129,7 @@ window.onload = function () {
         bookmarks.forEach(item => {
             var urlList = item.url.split('/')
             boomarksElement += `<a aria-label='${item.title}' title='${item.title}' href='${item.url}' class='ele-item'><img src='${urlList[0] + '//' + urlList[2] + '/' + 'favicon.ico'}'></img>
-            <div  class='website-name'>${item.title}</div></a>`
+            <div class='website-name'>${item.title}</div></a>`
         })
 
         bookmarksBox.innerHTML = boomarksElement
